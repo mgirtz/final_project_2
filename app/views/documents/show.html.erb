@@ -12,7 +12,13 @@
       <dd><%= @document.signature %></dd>
 
       <dt>Home</dt>
-      <dd><%= @document.home_id %></dd>
+      <dd>
+        <% if @document.home.present? %>
+          <a href="/homes/<%= @document.home_id %>">
+            <%= @document.home.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

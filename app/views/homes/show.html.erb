@@ -22,7 +22,13 @@
       </dd>
 
       <dt>User</dt>
-      <dd><%= @home.user_id %></dd>
+      <dd>
+        <% if @home.user.present? %>
+          <a href="/users/<%= @home.user_id %>">
+            <%= @home.user.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Showing schedule</dt>
       <dd><%= @home.showing_schedule %></dd>

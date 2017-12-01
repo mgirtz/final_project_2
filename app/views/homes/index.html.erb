@@ -39,7 +39,13 @@
         <td><%= home.asking_price %></td>
         <td><%= home.seller_notes %></td>
         <td><%= home.location %></td>
-        <td><%= home.user.created_at %></td>
+        <td>
+          <% if home.user.present? %>
+            <a href="/users/<%= home.user.id %>">
+              <%= home.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= home.showing_schedule %></td>
         <td><%= home.bedrooms %></td>
         <td><%= home.bathrooms %></td>

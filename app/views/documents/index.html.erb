@@ -19,7 +19,7 @@
       <tr>
         <td><%= document.signature_date %></td>
         <td><%= document.signature %></td>
-        <td><%= document.home_id %></td>
+        <td><%= document.home.created_at %></td>
         <td>
           <a href="/documents/<%= document.id %>" class="btn btn-primary">Show</a>
           <a href="/documents/<%= document.id %>/edit" class="btn btn-warning">Edit</a>

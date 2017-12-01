@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = Document.page(params[:page]).per(10)
+    @q = Document.ransack(params[:q])
+    @documents = @q.result(:distinct => true).includes(:home, :user).page(params[:page]).per(10)
 
     render("documents/index.html.erb")
   end

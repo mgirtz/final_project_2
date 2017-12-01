@@ -3,6 +3,289 @@
     Homes
     <a href="/homes/new" class="btn btn-lg btn-success">New Home</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "homes_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+          <%= f.label :year_built, "Year built" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='year_builtgteqPicker'>
+                  <%= f.text_field :year_built_gteq, :class => "form-control", :placeholder => "Year built greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='year_builtlteqPicker'>
+                  <%= f.text_field :year_built_lteq, :class => "form-control", :placeholder => "Year built less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#year_builtgteqPicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#year_builtlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#year_builtgteqPicker').on("dp.change", function (e) {
+                  $('#year_builtlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#year_builtlteqPicker').on("dp.change", function (e) {
+                  $('#year_builtgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+    <%= f.label :style_cont, "Style contains" %>
+    <%= f.text_field :style_cont, :class => "form-control", :placeholder => "Style contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :acres, "Acres" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :acres_gteq, :class => "form-control", :placeholder => "Acres greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :acres_lteq, :class => "form-control", :placeholder => "Acres less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :squarefeet, "Squarefeet" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :squarefeet_gteq, :class => "form-control", :placeholder => "Squarefeet greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :squarefeet_lteq, :class => "form-control", :placeholder => "Squarefeet less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :bathrooms, "Bathrooms" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :bathrooms_gteq, :class => "form-control", :placeholder => "Bathrooms greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :bathrooms_lteq, :class => "form-control", :placeholder => "Bathrooms less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :bedrooms, "Bedrooms" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :bedrooms_gteq, :class => "form-control", :placeholder => "Bedrooms greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :bedrooms_lteq, :class => "form-control", :placeholder => "Bedrooms less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+          <%= f.label :showing_schedule, "Showing schedule" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='showing_schedulegteqPicker'>
+                  <%= f.text_field :showing_schedule_gteq, :class => "form-control", :placeholder => "Showing schedule greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='showing_schedulelteqPicker'>
+                  <%= f.text_field :showing_schedule_lteq, :class => "form-control", :placeholder => "Showing schedule less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#showing_schedulegteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#showing_schedulelteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#showing_schedulegteqPicker').on("dp.change", function (e) {
+                  $('#showing_schedulelteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#showing_schedulelteqPicker').on("dp.change", function (e) {
+                  $('#showing_schedulegteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+    <%= f.label :seller_notes_cont, "Seller notes contains" %>
+    <%= f.text_field :seller_notes_cont, :class => "form-control", :placeholder => "Seller notes contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :asking_price, "Asking price" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :asking_price_gteq, :class => "form-control", :placeholder => "Asking price greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :asking_price_lteq, :class => "form-control", :placeholder => "Asking price less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+          <%= f.label :signature_date, "Document Signature date" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='documentsgteqsignature_datePicker'>
+                  <%= f.text_field :documents_signature_date_gteq, :class => "form-control", :placeholder => "Document Signature date greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='documentslteqsignature_datePicker'>
+                  <%= f.text_field :documents_signature_date_lteq, :class => "form-control", :placeholder => "Document Signature date less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#documentsgteqsignature_datePicker').datetimepicker({
+                  format: 'MM/DD/YYYY'
+              });
+              $('#documentslteqsignature_datePicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'MM/DD/YYYY'
+              });
+              $('#documentsgteqsignature_datePicker').on("dp.change", function (e) {
+                  $('#documentslteqsignature_datePicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#documentslteqsignature_datePicker').on("dp.change", function (e) {
+                  $('#documentsgteqsignature_datePicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "User Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='usergteqcreated_atPicker'>
+                  <%= f.text_field :user_created_at_gteq, :class => "form-control", :placeholder => "User Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='userlteqcreated_atPicker'>
+                  <%= f.text_field :user_created_at_lteq, :class => "form-control", :placeholder => "User Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#usergteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#userlteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#usergteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#userlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#userlteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#usergteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/homes" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#homes_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 

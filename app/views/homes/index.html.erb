@@ -26,7 +26,7 @@
 
       <% @homes.each do |home| %>
       <tr>
-        <td><%= home.image %></td>
+        <td><img src='<%= home.image %>' class='img-responsive'></td>
         <td><%= home.asking_price %></td>
         <td><%= home.seller_notes %></td>
         <td><%= home.location %></td>

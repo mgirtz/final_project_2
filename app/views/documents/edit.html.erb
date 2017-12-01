@@ -42,7 +42,7 @@
           Home
         </label>
 
-        <input type="text" id="home_id" name="home_id" placeholder="Home" class="form-control" value="<%= @document.home_id %>">
+        <%= select_tag(:home_id, options_from_collection_for_select(Home.all, :id, :created_at, @document.home_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">

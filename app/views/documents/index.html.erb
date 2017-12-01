@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    Documents
+    <a href="/documents/new" class="btn btn-lg btn-success">New Document</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Signature date</th>
+        <th>Signature</th>
+        <th>Home</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.signature_date %></td>
+        <td><%= document.signature %></td>
+        <td><%= document.home_id %></td>
+        <td>
+          <a href="/documents/<%= document.id %>" class="btn btn-primary">Show</a>
+          <a href="/documents/<%= document.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_document/<%= document.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @document.errors.any? %>
+  <% @document.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Document</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_document" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for signature_date -->
+      <div class="form-group">
+        <label for="signature_date" class="control-label">
+          Signature date
+        </label>
+
+        <input type="text" id="signature_date" name="signature_date" placeholder="Signature date" class="form-control" value="<%= @document.signature_date %>">
+      </div>
+
+      <!-- Label and input for signature -->
+      <div class="form-group">
+        <label for="signature" class="control-label">
+          Signature
+        </label>
+
+        <input type="text" id="signature" name="signature" placeholder="Signature" class="form-control" value="<%= @document.signature %>">
+      </div>
+
+      <!-- Label and input for home_id -->
+      <div class="form-group">
+        <label for="home_id" class="control-label">
+          Home
+        </label>
+
+        <input type="text" id="home_id" name="home_id" placeholder="Home" class="form-control" value="<%= @document.home_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Document
+      </button>
+      or
+      <a href="/documents">Cancel</a>
+    </form>
+  </div>
+</div>

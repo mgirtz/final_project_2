@@ -16,6 +16,7 @@ class HomesController < ApplicationController
   end
 
   def show
+    @document = Document.new
     @home = Home.find(params[:id])
 
     render("homes/show.html.erb")

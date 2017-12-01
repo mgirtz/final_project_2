@@ -11,6 +11,11 @@ class HomesController < ApplicationController
 
   def index
     @homes = Home.all
+    @location_hash = Gmaps4rails.build_markers(@homes.where.not(:location_latitude => nil)) do |home, marker|
+      marker.lat home.location_latitude
+      marker.lng home.location_longitude
+      marker.infowindow "<h5><a href='/homes/#{home.id}'>#{home.created_at}</a></h5><small>#{home.location_formatted_address}</small>"
+    end
 
     render("homes/index.html.erb")
   end

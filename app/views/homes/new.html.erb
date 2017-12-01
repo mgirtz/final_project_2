@@ -1,0 +1,136 @@
+<!-- Validation failure messages -->
+<% if @home.errors.any? %>
+  <% @home.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Home</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_home" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @home.image %>">
+      </div>
+
+      <!-- Label and input for asking_price -->
+      <div class="form-group">
+        <label for="asking_price" class="control-label">
+          Asking price
+        </label>
+
+        <input type="text" id="asking_price" name="asking_price" placeholder="Asking price" class="form-control" value="<%= @home.asking_price %>">
+      </div>
+
+      <!-- Label and input for seller_notes -->
+      <div class="form-group">
+        <label for="seller_notes" class="control-label">
+          Seller notes
+        </label>
+
+        <textarea id="seller_notes" name="seller_notes" placeholder="Seller notes" class="form-control" rows="3"><%= @home.seller_notes %></textarea>
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @home.location %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @home.user_id %>">
+      </div>
+
+      <!-- Label and input for showing_schedule -->
+      <div class="form-group">
+        <label for="showing_schedule" class="control-label">
+          Showing schedule
+        </label>
+
+        <input type="text" id="showing_schedule" name="showing_schedule" placeholder="Showing schedule" class="form-control" value="<%= @home.showing_schedule %>">
+      </div>
+
+      <!-- Label and input for bedrooms -->
+      <div class="form-group">
+        <label for="bedrooms" class="control-label">
+          Bedrooms
+        </label>
+
+        <input type="text" id="bedrooms" name="bedrooms" placeholder="Bedrooms" class="form-control" value="<%= @home.bedrooms %>">
+      </div>
+
+      <!-- Label and input for bathrooms -->
+      <div class="form-group">
+        <label for="bathrooms" class="control-label">
+          Bathrooms
+        </label>
+
+        <input type="text" id="bathrooms" name="bathrooms" placeholder="Bathrooms" class="form-control" value="<%= @home.bathrooms %>">
+      </div>
+
+      <!-- Label and input for squarefeet -->
+      <div class="form-group">
+        <label for="squarefeet" class="control-label">
+          Squarefeet
+        </label>
+
+        <input type="text" id="squarefeet" name="squarefeet" placeholder="Squarefeet" class="form-control" value="<%= @home.squarefeet %>">
+      </div>
+
+      <!-- Label and input for acres -->
+      <div class="form-group">
+        <label for="acres" class="control-label">
+          Acres
+        </label>
+
+        <input type="text" id="acres" name="acres" placeholder="Acres" class="form-control" value="<%= @home.acres %>">
+      </div>
+
+      <!-- Label and input for style -->
+      <div class="form-group">
+        <label for="style" class="control-label">
+          Style
+        </label>
+
+        <input type="text" id="style" name="style" placeholder="Style" class="form-control" value="<%= @home.style %>">
+      </div>
+
+      <!-- Label and input for year_built -->
+      <div class="form-group">
+        <label for="year_built" class="control-label">
+          Year built
+        </label>
+
+        <input type="text" id="year_built" name="year_built" placeholder="Year built" class="form-control" value="<%= @home.year_built %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Home
+      </button>
+      or
+      <a href="/homes">Cancel</a>
+    </form>
+  </div>
+</div>

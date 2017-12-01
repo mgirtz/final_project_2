@@ -1,0 +1,50 @@
+<div class="page-header">
+  <h1>
+    Homes
+    <a href="/homes/new" class="btn btn-lg btn-success">New Home</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Image</th>
+        <th>Asking price</th>
+        <th>Seller notes</th>
+        <th>Location</th>
+        <th>User</th>
+        <th>Showing schedule</th>
+        <th>Bedrooms</th>
+        <th>Bathrooms</th>
+        <th>Squarefeet</th>
+        <th>Acres</th>
+        <th>Style</th>
+        <th>Year built</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @homes.each do |home| %>
+      <tr>
+        <td><%= home.image %></td>
+        <td><%= home.asking_price %></td>
+        <td><%= home.seller_notes %></td>
+        <td><%= home.location %></td>
+        <td><%= home.user_id %></td>
+        <td><%= home.showing_schedule %></td>
+        <td><%= home.bedrooms %></td>
+        <td><%= home.bathrooms %></td>
+        <td><%= home.squarefeet %></td>
+        <td><%= home.acres %></td>
+        <td><%= home.style %></td>
+        <td><%= home.year_built %></td>
+        <td>
+          <a href="/homes/<%= home.id %>" class="btn btn-primary">Show</a>
+          <a href="/homes/<%= home.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_home/<%= home.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

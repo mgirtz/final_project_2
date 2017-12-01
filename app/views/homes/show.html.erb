@@ -1,0 +1,58 @@
+<div class="page-header">
+  <h3>Home #<%= @home.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Image</dt>
+      <dd><%= @home.image %></dd>
+
+      <dt>Asking price</dt>
+      <dd><%= @home.asking_price %></dd>
+
+      <dt>Seller notes</dt>
+      <dd><%= @home.seller_notes %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @home.location %></dd>
+
+      <dt>User</dt>
+      <dd><%= @home.user_id %></dd>
+
+      <dt>Showing schedule</dt>
+      <dd><%= @home.showing_schedule %></dd>
+
+      <dt>Bedrooms</dt>
+      <dd><%= @home.bedrooms %></dd>
+
+      <dt>Bathrooms</dt>
+      <dd><%= @home.bathrooms %></dd>
+
+      <dt>Squarefeet</dt>
+      <dd><%= @home.squarefeet %></dd>
+
+      <dt>Acres</dt>
+      <dd><%= @home.acres %></dd>
+
+      <dt>Style</dt>
+      <dd><%= @home.style %></dd>
+
+      <dt>Year built</dt>
+      <dd><%= @home.year_built %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/homes" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/homes/<%= @home.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_home/<%= @home.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

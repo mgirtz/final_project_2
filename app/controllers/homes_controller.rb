@@ -10,7 +10,7 @@ class HomesController < ApplicationController
   end
 
   def index
-    @homes = Home.all
+    @homes = Home.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@homes.where.not(:location_latitude => nil)) do |home, marker|
       marker.lat home.location_latitude
       marker.lng home.location_longitude

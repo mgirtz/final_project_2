@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = Document.all
+    @documents = Document.page(params[:page]).per(10)
 
     render("documents/index.html.erb")
   end

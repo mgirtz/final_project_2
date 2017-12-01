@@ -1,4 +1,14 @@
 class HomesController < ApplicationController
+  before_action :current_user_must_be_home_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_home_user
+    home = Home.find(params[:id])
+
+    unless current_user == home.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @homes = Home.all
 

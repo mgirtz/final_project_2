@@ -1,5 +1,7 @@
 ActiveAdmin.register Home do
 
+ permit_params :image, :asking_price, :seller_notes, :location, :user_id, :showing_schedule, :bedrooms, :bathrooms, :squarefeet, :acres, :style, :year_built
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

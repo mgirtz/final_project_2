@@ -5,6 +5,10 @@ class Document < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :user,
+             :through => :home,
+             :source => :user
+
   # Validations
 
 end

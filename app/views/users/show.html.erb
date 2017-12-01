@@ -23,3 +23,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many homes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Homes
+      </li>
+
+      <% @user.homes.each do |home| %>
+        <li class="list-group-item">
+          <a href="/homes/<%= home.id %>">
+            <%= home.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/homes/<%= home.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/homes/<%= home.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_home/<%= home.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many documents -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Documents
+      </li>
+
+      <% @user.documents.each do |document| %>
+        <li class="list-group-item">
+          <a href="/documents/<%= document.id %>">
+            <%= document.signature_date %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/documents/<%= document.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/documents/<%= document.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_document/<%= document.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
